@@ -1,4 +1,5 @@
 import * as htmlparser2 from 'htmlparser2';
+import getDisplayTime from './getDisplayTime';
 
 const parseRSS = (xml) => {
   let items = [];
@@ -72,6 +73,8 @@ const parseRSS = (xml) => {
         }
         if (initem && indate) {
           item.pubDate = text.trim();
+          item.datePublished = new Date(Date.parse(item.pubDate));
+          item.displayTime = getDisplayTime(item.datePublished);
         }
         if (initem && inmedia) {
           item.imageUrl = text.trim();
