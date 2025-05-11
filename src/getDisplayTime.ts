@@ -1,4 +1,4 @@
-const getDisplayTime = (datePublished) => {
+const getDisplayTime = (datePublished: Date) => {
   const now = new Date();
   let displayTime = 'Just now';
   const diffYear = Math.abs(now.getFullYear() - datePublished.getFullYear());

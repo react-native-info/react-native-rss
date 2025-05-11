@@ -1,9 +1,9 @@
 import * as htmlparser2 from 'htmlparser2';
 import getDisplayTime from './getDisplayTime';
 
-const parseRSS = (xml) => {
-  let items = [];
-  let item;
+const parseRSS = (xml: string, source: { name: string; icon: string }) => {
+  let items: any = [];
+  let item: any;
 
   let initem = false;
   let intitle = false;
@@ -166,8 +166,8 @@ const parseRSS = (xml) => {
     if (item.rawContent) {
       item.content = item.rawContent
         .split(/\?|!|(?<![Mr|MR|e\.g|E\.g|E\.G])\.\s|\.\n|\n/)
-        .map((el) => el.trim())
-        .filter((el) => !!el && el.length > 0);
+        .map((el: string) => el.trim())
+        .filter((el: string) => !!el && el.length > 0);
     } else {
       item.content = [];
     }
