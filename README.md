@@ -12,11 +12,11 @@ npm install react-native-rss
 
 
 ```js
-import { multiply } from 'react-native-rss';
+import parseRSS from 'react-native-rss';
 
 // ...
 
-const result = await multiply(3, 7);
+const result = parseRSS(xml, source);
 ```
 
 
