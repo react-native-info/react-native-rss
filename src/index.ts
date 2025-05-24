@@ -1,7 +1,6 @@
 import * as htmlparser2 from 'htmlparser2';
 import getDisplayTime from './getDisplayTime';
-
-const he = require('he'); // eslint-disable-line
+import he from 'he';
 
 const parseRSS = (xml: string, source: { name: string; icon: string }) => {
   let items: any = [];
