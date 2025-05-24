@@ -1,6 +1,8 @@
 import * as htmlparser2 from 'htmlparser2';
 import getDisplayTime from './getDisplayTime';
 
+const he = require('he'); // eslint-disable-line
+
 const parseRSS = (xml: string, source: { name: string; icon: string }) => {
   let items: any = [];
   let item: any;
@@ -72,7 +74,7 @@ const parseRSS = (xml: string, source: { name: string; icon: string }) => {
           }
         }
         if (initem && indate) {
-          item.pubDate = text.trim();
+          item.pubDate = he.decode(text.trim());
           item.datePublished = new Date(Date.parse(item.pubDate));
           item.displayTime = getDisplayTime(item.datePublished);
         }
@@ -90,7 +92,7 @@ const parseRSS = (xml: string, source: { name: string; icon: string }) => {
         }
         if (intitle && tagname === 'title') {
           if (initem) {
-            item.name = titleBuff.trim();
+            item.name = he.decode(titleBuff.trim());
           }
           intitle = false;
         }
