@@ -168,7 +168,7 @@ const parseRSS = (xml: string, source: { name: string; icon: string }) => {
     if (item.rawContent) {
       item.content = item.rawContent
         .split(/\?|!|(?<![Mr|MR|e\.g|E\.g|E\.G])\.\s|\.\n|\n/)
-        .map((el: string) => el.trim())
+        .map((el: string) => he.decode(el.trim()))
         .filter((el: string) => !!el && el.length > 0);
     } else {
       item.content = [];

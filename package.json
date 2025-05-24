@@ -1,6 +1,6 @@
 {
   "name": "react-native-rss",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Returns clean structural JSON for RSS",
   "source": "./src/index.ts",
   "main": "./lib/module/index.js",
